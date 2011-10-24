@@ -1,0 +1,41 @@
+$GLOBAL
+ NSTEPS= 9500,  NSAVE = 500, RESTRT= .F.,
+ FMG = .T., MULTIG = .T.,
+      NGLVL = 3,     FMGCYC = 250, 250,
+     NQT = 203,
+     $END
+ $FLOINP
+      ALPHA = 0.0,
+     FSMACH= 2.46,  REY   = 1.81E5,
+     $END
+ $VARGAM $END
+
+ $GRDNAM
+     NAME  = 'Willis',
+     $END
+ $NITERS $END
+ $METPRM
+     IRHS = 3, ILHS = 2, IDISS = 4,
+     $END
+ $TIMACU
+     DT    = 0.1,  CFLMIN= 2, CFLMAX = 0,
+     $END
+ $SMOACU
+      ISPEC = 2, DIS2 = 10.0,  DIS4 = 0.10,
+     $END
+ $VISINP
+      VISC = .T.,
+     CFLT  = 5,
+     $END
+ $BCINP
+     IBTYP = 47,  5,  5, 45, 30, 21,
+     IBDIR = -3, -3,  3,  1, -1,  2,
+     JBCS  =  1, 26,  2,  1, -1,  1,
+     JBCE  = 25, -1, -2,  1, -1, -1,
+     KBCS  =  2,  2,  2,  2,  2,  1,
+     KBCE  = -2, -2, -2, -2, -2,  1,
+     LBCS  = -1, -1,  1,  1,  1,  1,
+     LBCE  = -1, -1,  1, -1, -1, -1,
+     BCFILE(4)= 'q.inflow_bc',
+     $END
+ $SCEINP $END

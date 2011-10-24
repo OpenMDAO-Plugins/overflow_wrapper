@@ -1,0 +1,197 @@
+
+&GLOBAL
+  cdisc = F
+  conserve_mem = F
+  debug = 0
+  dtphys = 0.0
+  fmg = T
+  fmgcyc = 250, 250
+  fsonwt = 2.0
+  grdwts = F
+  istart_qavg = 0
+  max_grid_size = 0
+  multig = T
+  nfomo = 10
+  nglvl = 3
+  nitnwt = 0
+  nobomb = F
+  nqc = 0
+  nqt = 203
+  nsave = 500
+  nsteps = 9500
+  restrt = F
+  rf = 0.0
+  save_hiorder = 2
+/
+&FLOINP
+  alpha = 0.0
+  aspctr = 1.0
+  beta = 0.0
+  clalph = 0.1
+  cltarg = 0.0
+  ctp = 0.0
+  froude = 0.0
+  fsmach = 2.46
+  gaminf = 1.4
+  gvec = 0.0, 0.0, 1.0
+  ntarg = 10
+  pr = 0.72
+  prt = 0.9
+  refmach = 2.46
+  retinf = 0.1
+  rey = 181000.0
+  targcl = F
+  tinf = 518.7
+  xkinf = 1e-06
+/
+&VARGAM
+  alt0 = 3.5
+  alt1 = 0.0
+  alt2 = 0.0
+  alt3 = 0.0
+  alt4 = 0.0
+  aut0 = 1.0
+  aut1 = 0.0
+  aut2 = 0.0
+  aut3 = 0.0
+  aut4 = 0.0
+  ht1 = 10.0
+  ht2 = 10.0
+  igam = 0
+  scinf = 1
+  sigl = 1.0
+  sigt = 1.0
+  smw = 1.0
+/
+&GRDNAM
+  name = 'Willis'
+/
+&NITERS
+  iter = 1
+/
+&METPRM
+  bimin = 1.0
+  corsvi = T
+  idiss = 4
+  ilhs = 2
+  ilimit = 1
+  irhs = 3
+  multig = T
+  q_limit = T
+  recmut = F
+  smooc = 0.0
+  smoop = 0.0
+  smoor = 0.0
+  ssor_relax = 0.9
+/
+&TIMACU
+  cflmax = 0.0
+  cflmin = 2.0
+  dt = 0.1
+  itime = 1
+  tfoso = 1.0
+/
+&SMOACU
+  delta = 1.0
+  dis2 = 10.0
+  dis4 = 0.1
+  epssgs = 0.02
+  filter = 0
+  ispec = 2
+  roeavg = F
+  smoo = 1.0
+  vepsl = 0.0
+  vepsn = 0.0
+/
+&VISINP
+  cflt = 5.0
+  icc = 1
+  ides = 0
+  irc = 0
+  itc = 0
+  itdir = 
+  itert = 1
+  ittyp = 
+  jtle = 
+  jtls = 
+  ktle = 
+  ktls = 
+  ltle = 
+  ltls = 
+  mut_limit = 200000.0
+  tlpar1 = 
+  visc = T
+  viscj = F
+  visck = F
+  viscl = F
+  viscx = F
+  wallfun = F
+/
+&BCINP
+  bcfile = '', '', '', 'q.inflow_bc'
+  bcpar1 = 
+  bcpar2 = 
+  ibdir = -3, -3, 3, 1, -1, 2
+  ibtyp = 47, 5, 5, 45, 30, 21
+  jbce = 25, -1, -2, 1, -1, -1
+  jbcs = 1, 26, 2, 1, -1, 1
+  kbce = -2, -2, -2, -2, -2, 1
+  kbcs = 2, 2, 2, 2, 2, 1
+  lbce = -1, -1, 1, -1, -1, -1
+  lbcs = -1, -1, 1, 1, 1, 1
+/
+&SCEINP
+  cflc = 1.0
+  dis2c = 2.0
+  dis4c = 0.04
+  iterc = 1
+  itlhic = 1
+  iupc = 1
+/
+&SIXINP
+  bmass = 1.0
+  e1 = 0.0
+  e2 = 0.0
+  e3 = 0.0
+  e4 = 1.0
+  fmx = 0.0
+  fmy = 0.0
+  fmz = 0.0
+  free = F
+  freer = T
+  freex = T
+  freey = T
+  freez = T
+  fx = 0.0
+  fy = 0.0
+  fz = 0.0
+  gravx = 0.0
+  gravy = 0.0
+  gravz = 1.0
+  iblink = 1
+  igmove = 0
+  ishift = 0
+  strokt = 0.0
+  strokx = 0.0
+  stroky = 0.0
+  strokz = 0.0
+  tjj = 1.0
+  tkk = 1.0
+  tll = 1.0
+  ur = 0.0
+  vr = 0.0
+  weight = 0.0
+  wj = 0.0
+  wk = 0.0
+  wl = 0.0
+  wr = 0.0
+  wx = 0.0
+  wy = 0.0
+  wz = 0.0
+  x0 = 0.0
+  x00 = 0.0
+  y0 = 0.0
+  y00 = 0.0
+  z0 = 0.0
+  z00 = 0.0
+/

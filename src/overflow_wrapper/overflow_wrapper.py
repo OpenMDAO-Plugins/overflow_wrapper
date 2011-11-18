@@ -683,7 +683,7 @@ class OverflowWrapper(ExternalCode):
     """ Wrapper for the Overflow CFD solver.
     """
     
-    overflowD = Bool(True, iotype='in', desc='Set to True to run Overflow-D')
+    overflowD = Bool(False, iotype='in', desc='Set to True to run Overflow-D')
     error_text = Str('', iotype='out', desc='Error message(s) reported by Overflow')
     
     # Variable Tree slots
@@ -709,7 +709,7 @@ class OverflowWrapper(ExternalCode):
         self.logfile = 'overflow.log'
         
         self.external_files = [
-            FileMetadata(path='over.namelist', input=True),
+            FileMetadata(path=self.inputfile, input=True),
             FileMetadata(path=self.stdout),
             FileMetadata(path=self.stderr),
         ]
@@ -854,7 +854,17 @@ class OverflowWrapper(ExternalCode):
     def check_errors(self):
         """Checks for any errors in the run.
         
-        Errors can be found in the logfile."""
+        Errors can be found in over.out."""
+        
+        errstring = '** ERROR **'
+        
+        outfile = open(self.stdout, 'r')
+        txt = outfile.readlines()
+        
+        # Check last ~6 lines of the file
+        for line in txt[-6:]:
+            if errstring in line:
+                self.error_text += line
         
     def parse_output(self):
         """Parses the Overflow output files and extracts data for the component

@@ -70,10 +70,10 @@ class Namelist_GLOBAL(VariableTree):
                  desc='True - Expect to read a NAMELIST input file overdisc.con, containing CDISC inverse design control information. This file will be updated by OVERFLOW.\n'
                       'False - Do not read or write any CDISC information.')
     grdwts = Bool(False, 
-                  desc='True - Use grid timing information in grdwghts.restart for MPI load-balancing, if available. (Equivalent to USEFLE in $GROUPS.)\n'
+                  desc='True - Use grid timing information in grdwghts.restart for MPI load balancing, if available. (Equivalent to USEFLE in $GROUPS.)\n'
                        'False - Use normal load-balancing algorithm.')
     max_grid_size = Int(0, 
-                        desc='0 - Use automatic grid splitting algorithm for load-balancing.\n'
+                        desc='0 - Use automatic grid splitting algorithm for load balancing.\n'
                              '>0 - Specified (weighted) size limit for split grids.\n'
                              '<0 - Do not split grids.\n'
                              '(Sets default MAXNB and MAXGRD in $GROUPS.)')
@@ -126,7 +126,7 @@ class Namelist_GBRICK(VariableTree):
                          desc='>0 - Maximum off-body grid size.\n'
                               '<=0 - No limit on off-body grid size.\n'
                               'Defaults to IGSIZE/2')
-    ds = Float(0.0, desc='Spacing of level-1 (finest) off-body grids. THIS MUST BE SPECIFIED')
+    ds = Float(0.0, desc='Spacing of level-1 (finest) off-body grids. THIS MUST BE SPECIFIED.')
     dfar = Float(5.0, desc='Distance to far-field boundaries.')
     # TODO - These next 3 default to center of near-body grids. Need to not print this if not set.
     xncen = Float(0.0, desc='Center of off-body grid system. Must be specified for repeatable off-body grid generation with body motion.')
@@ -202,17 +202,17 @@ class Namelist_GROUPS(VariableTree):
     """
 
     usefle = Bool(False, 
-                  desc='True - Use grid timing information in grdwghts.restart for MPI load-balancing, if available. (Equivalent to GRDWTS in $GLOBAL.)\n'
+                  desc='True - Use grid timing information in grdwghts.restart for MPI load balancing, if available. (Equivalent to GRDWTS in $GLOBAL.)\n'
                        'False - Use normal load-balancing algorithm.')
     # TODO - This can be set by max_grid_size? Need to find out more about this.
     maxnb = Int(0, 
-                desc='0 - Use automatic splitting algorithm for near-body grid load-balancing.\n'
+                desc='0 - Use automatic splitting algorithm for near-body grid load balancing.\n'
                      '>0 - Specified (weighted) size limit for split grids.\n'
                      '<0 - Do not split grids.\n'
                      '(Can be set by MAX_GRID_SIZE in $GLOBAL.)')
     # TODO - This can be set by max_grid_size? Need to find out more about this.
     maxgrd = Int(0, 
-                 desc='0 - Use automatic splitting algorithm for off-body grid load-balancing.\n'
+                 desc='0 - Use automatic splitting algorithm for off-body grid load balancing.\n'
                       '>0 - Specified (weighted) size limit for split grids.\n'
                       '<0 - Do not split grids.\n'
                       '(Can be set by MAX_GRID_SIZE in $GLOBAL.)')
@@ -250,7 +250,7 @@ class Namelist_XRINFO(VariableTree):
 
 
 class Namelist_FLOINP(VariableTree):
-    """VariableTree for the FLOINP namelist. Contains Flow parameters
+    """VariableTree for the FLOINP namelist. Contains Flow parameters.
     """
 
     fsmach = Float(0.0, desc='Freestream Mach number (M_inf).')
@@ -274,7 +274,7 @@ class Namelist_FLOINP(VariableTree):
     aspctr = Float(1.0, desc='Rotor radius (for BC type 37).')
     froude = Float(0.0, desc='Froude number (gravity term) (Fr) (based on Vrefand grid length unit).')
     gvec = Array(array([0.0, 0.0, 1.0]), dtype=numpy_float64,
-                 desc='Unit up-vector for FROUDE gravity term (Note that this vector is taken verbatimit is not modified internally by the angle-of-attack, since other orientation angles (such as bank angle) are not known.)')
+                 desc='Unit up-vector for FROUDE gravity term (Note that this vector is taken verbatim. It is not modified internally by the angle-of-attack, since other orientation angles (such as bank angle) are not known.')
 
     
 class Namelist_VARGAM(VariableTree):
@@ -654,7 +654,7 @@ class Namelist_SIXINP(VariableTree):
 
 
 class Grid(VariableTree):
-    """A VariableTree than holds all the grid-specific namelists for a given grid.
+    """A VariableTree that holds all the grid-specific namelists for a given grid.
     This is functionally added to the OverflowWrapper.
     """
 

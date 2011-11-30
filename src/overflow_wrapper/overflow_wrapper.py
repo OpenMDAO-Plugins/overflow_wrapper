@@ -703,7 +703,7 @@ class OverflowWrapper(ExternalCode):
 
         self.stdout = 'over.out'
         self.stderr = 'over.err'
-        self.command = 'overflow'
+        self.command = ['overflow']
         
         self.inputfile = 'over.namelist'
         self.logfile = 'overflow.log'

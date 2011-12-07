@@ -57,7 +57,7 @@ kwargs = {'author': 'Kenneth T. Moore',
  'package_dir': {'': 'src'},
  'packages': ['overflow_wrapper'],
  'url': 'https://github.com/OpenMDAO-Plugins/overflow_wrapper',
- 'version': '0.5',
+ 'version': '0.6',
  'zip_safe': False}
 
 

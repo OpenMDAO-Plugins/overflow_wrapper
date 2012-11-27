@@ -696,10 +696,10 @@ class OverflowWrapper(ExternalCode):
     floinp = Slot(Namelist_FLOINP, iotype='in')
     vargam = Slot(Namelist_VARGAM, iotype='in')
     
-    def __init__(self, *args, **kwargs):
+    def __init__(self):
         """Constructor for the Overflow wrapper"""
         
-        super(OverflowWrapper, self).__init__(*args, **kwargs)
+        super(OverflowWrapper, self).__init__()
 
         self.stdout = 'over.out'
         self.stderr = 'over.err'

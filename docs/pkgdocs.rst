@@ -18,6 +18,26 @@ Package Metadata
 
     [openmdao.component]
     overflow_wrapper.overflow_wrapper.OverflowWrapper=overflow_wrapper.overflow_wrapper:OverflowWrapper
+    [openmdao.container]
+    overflow_wrapper.overflow_wrapper.Namelist_VISINP=overflow_wrapper.overflow_wrapper:Namelist_VISINP
+    overflow_wrapper.overflow_wrapper.Namelist_GROUPS=overflow_wrapper.overflow_wrapper:Namelist_GROUPS
+    overflow_wrapper.overflow_wrapper.Namelist_NITERS=overflow_wrapper.overflow_wrapper:Namelist_NITERS
+    overflow_wrapper.overflow_wrapper.Namelist_DCFGLB=overflow_wrapper.overflow_wrapper:Namelist_DCFGLB
+    overflow_wrapper.overflow_wrapper.Namelist_GLOBAL=overflow_wrapper.overflow_wrapper:Namelist_GLOBAL
+    overflow_wrapper.overflow_wrapper.Namelist_SIXINP=overflow_wrapper.overflow_wrapper:Namelist_SIXINP
+    overflow_wrapper.overflow_wrapper.Namelist_OMIGLB=overflow_wrapper.overflow_wrapper:Namelist_OMIGLB
+    overflow_wrapper.overflow_wrapper.Namelist_VARGAM=overflow_wrapper.overflow_wrapper:Namelist_VARGAM
+    overflow_wrapper.overflow_wrapper.OverflowWrapper=overflow_wrapper.overflow_wrapper:OverflowWrapper
+    overflow_wrapper.overflow_wrapper.Namelist_SCEINP=overflow_wrapper.overflow_wrapper:Namelist_SCEINP
+    overflow_wrapper.overflow_wrapper.Namelist_FLOINP=overflow_wrapper.overflow_wrapper:Namelist_FLOINP
+    overflow_wrapper.overflow_wrapper.Namelist_SMOACU=overflow_wrapper.overflow_wrapper:Namelist_SMOACU
+    overflow_wrapper.overflow_wrapper.Namelist_METPRM=overflow_wrapper.overflow_wrapper:Namelist_METPRM
+    overflow_wrapper.overflow_wrapper.Namelist_TIMACU=overflow_wrapper.overflow_wrapper:Namelist_TIMACU
+    overflow_wrapper.overflow_wrapper.Namelist_GBRICK=overflow_wrapper.overflow_wrapper:Namelist_GBRICK
+    overflow_wrapper.overflow_wrapper.Grid=overflow_wrapper.overflow_wrapper:Grid
+    overflow_wrapper.overflow_wrapper.Namelist_XRINFO=overflow_wrapper.overflow_wrapper:Namelist_XRINFO
+    overflow_wrapper.overflow_wrapper.Namelist_BCINP=overflow_wrapper.overflow_wrapper:Namelist_BCINP
+    overflow_wrapper.overflow_wrapper.Namelist_BRKINP=overflow_wrapper.overflow_wrapper:Namelist_BRKINP
 
 - **home-page:** https://github.com/OpenMDAO-Plugins/overflow_wrapper
 
@@ -42,5 +62,5 @@ Package Metadata
 
 - **summary:** OpenMDAO component wrapper for the Overflow (OVERset grid FLOW solver)
 
-- **version:** 0.6
+- **version:** 0.7
 

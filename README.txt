@@ -15,5 +15,5 @@ http://aaac.larc.nasa.gov/~buning/codes.html
 
 To view the Sphinx documentation for this distribution, type:
 
-plugin_docs overflow_wrapper
+openmdao docs overflow_wrapper
 

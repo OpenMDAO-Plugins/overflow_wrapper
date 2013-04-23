@@ -62,5 +62,5 @@ Package Metadata
 
 - **summary:** OpenMDAO component wrapper for the Overflow (OVERset grid FLOW solver)
 
-- **version:** 0.7
+- **version:** 0.8
 

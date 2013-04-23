@@ -11,7 +11,7 @@ from numpy import array, zeros
 from openmdao.main.api import VariableTree, FileMetadata
 from openmdao.lib.components.api import ExternalCode
 from openmdao.lib.datatypes.api import Array, Bool, Enum, Float, Int, List, \
-                                       Slot, Str
+                                       Str, VarTree
 from openmdao.lib.datatypes.domain import Vector, read_plot3d_grid
 from openmdao.util.log import NullLogger
 from openmdao.util.namelist_util import Namelist
@@ -663,20 +663,15 @@ class Grid(VariableTree):
 
     name = Str("Grid", desc='A name for this grid')
     
-    def __init__(self, *args, **kwargs):
-        """Constructor for the Overflow wrapper"""
-
-        super(Grid, self).__init__(*args, **kwargs)
-        
-        # Add VariableTrees
-        self.add('niters',  Namelist_NITERS())
-        self.add('metprm',  Namelist_METPRM())
-        self.add('timacu',  Namelist_TIMACU())
-        self.add('smoacu',  Namelist_SMOACU())
-        self.add('visinp',  Namelist_VISINP())
-        self.add('bcinp',  Namelist_BCINP())
-        self.add('sceinp',  Namelist_SCEINP())
-        self.add('sixinp',  Namelist_SIXINP())
+    # Add VariableTrees
+    niters = VarTree(Namelist_NITERS())
+    metprm = VarTree(Namelist_METPRM())
+    timacu = VarTree(Namelist_TIMACU())
+    smoacu = VarTree(Namelist_SMOACU())
+    visinp = VarTree(Namelist_VISINP())
+    bcinp  = VarTree(Namelist_BCINP())
+    sceinp = VarTree(Namelist_SCEINP())
+    sixinp = VarTree(Namelist_SIXINP())
 
 
 class OverflowWrapper(ExternalCode):
@@ -687,14 +682,14 @@ class OverflowWrapper(ExternalCode):
     error_text = Str('', iotype='out', desc='Error message(s) reported by Overflow')
     
     # Variable Tree slots
-    global_params = Slot(Namelist_GLOBAL, iotype='in')
-    omiglb = Slot(Namelist_OMIGLB, iotype='in')
-    gbrick = Slot(Namelist_GBRICK, iotype='in')
-    brkinp = Slot(Namelist_BRKINP, iotype='in')
-    groups = Slot(Namelist_GROUPS, iotype='in')
-    dcfglb = Slot(Namelist_DCFGLB, iotype='in')
-    floinp = Slot(Namelist_FLOINP, iotype='in')
-    vargam = Slot(Namelist_VARGAM, iotype='in')
+    global_params = VarTree(Namelist_GLOBAL(), iotype='in')
+    omiglb = VarTree(Namelist_OMIGLB(), iotype='in')
+    gbrick = VarTree(Namelist_GBRICK(), iotype='in')
+    brkinp = VarTree(Namelist_BRKINP(), iotype='in')
+    groups = VarTree(Namelist_GROUPS(), iotype='in')
+    dcfglb = VarTree(Namelist_DCFGLB(), iotype='in')
+    floinp = VarTree(Namelist_FLOINP(), iotype='in')
+    vargam = VarTree(Namelist_VARGAM(), iotype='in')
     
     def __init__(self):
         """Constructor for the Overflow wrapper"""
@@ -713,16 +708,6 @@ class OverflowWrapper(ExternalCode):
             FileMetadata(path=self.stdout),
             FileMetadata(path=self.stderr),
         ]
-        
-        # Add VariableTrees
-        self.add('global_params',  Namelist_GLOBAL())
-        self.add('omiglb',  Namelist_OMIGLB())
-        self.add('gbrick',  Namelist_GBRICK())
-        self.add('brkinp',  Namelist_BRKINP())
-        self.add('groups',  Namelist_GROUPS())
-        self.add('dcfglb',  Namelist_DCFGLB())
-        self.add('floinp',  Namelist_FLOINP())
-        self.add('vargam',  Namelist_VARGAM())
         
         # Some defaults are dependent on other namelists.
         gam = self.floinp.gaminf
@@ -918,8 +903,7 @@ class OverflowWrapper(ExternalCode):
                 else:
                     name = container_name
                     
-                self.add_trait(container_name, Slot(Grid, iotype='in'))
-                self.add(container_name, Grid())
+                self.add(container_name, VarTree(Grid(), iotype='in'))
                 self.set('%s.name' % container_name, name)
                 self._numgrids += 1
                 
